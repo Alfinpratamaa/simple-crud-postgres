@@ -1,4 +1,4 @@
-"use client"
+
 import React from 'react'
 import AddSiswa from '../components/AddSiswa'
 import { PrismaClient } from '@prisma/client'
