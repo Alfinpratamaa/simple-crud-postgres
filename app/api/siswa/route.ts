@@ -3,7 +3,7 @@ import type { Siswa } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
+ 
 export const POST = async (req: Request) => {
   try {
     const body: Siswa = await req.json();
