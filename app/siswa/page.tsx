@@ -1,5 +1,5 @@
 
-import React from 'react'
+
 import AddSiswa from '../components/AddSiswa'
 import { PrismaClient } from '@prisma/client'
 import DeleteSiswa from '../components/DeleteSiswa'
@@ -17,6 +17,7 @@ const getSiswa = async () => {
     })
     return res
 }
+
 
 const Student = async () => {
 

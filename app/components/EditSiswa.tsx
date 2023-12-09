@@ -25,6 +25,18 @@ const EditSiswa = ({ siswa }: { siswa: Siswa }) => {
 
     }
 
+    const getDataSiswa = async () => {
+        await axios.get(`/api/siswa`, {
+            params: {
+                id: id,
+                name: name,
+                jurusan: jurusan
+            }
+        })
+        router.refresh()
+        setIsOpen(false)
+    }
+
     const handleEdit = async (e: SyntheticEvent) => {
         e.preventDefault()
         await axios.patch(`/api/siswa/${siswa.id}`, {
@@ -35,6 +47,7 @@ const EditSiswa = ({ siswa }: { siswa: Siswa }) => {
         })
         router.refresh()
         setIsOpen(false)
+        getDataSiswa()
     }
 
     return (

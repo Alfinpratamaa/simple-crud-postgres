@@ -20,9 +20,11 @@ const DeleteSiswa = ({ siswa }: { siswa: Siswa }) => {
         setIsOpen(!isOpen)
     }
 
+
     const handleDelete = async (id: string) => {
         await axios.delete(`/api/siswa/${id}`)
         router.refresh()
+        await axios.get(`/api/siswa`)
         setIsOpen(false)
     }
 

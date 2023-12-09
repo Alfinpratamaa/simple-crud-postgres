@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState, SyntheticEvent } from "react";
 import type { Siswa } from "@prisma/client";
@@ -13,6 +13,18 @@ const AddSiswa = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const router = useRouter()
+
+    const getDataSiswa = async () => {
+        await axios.get(`/api/siswa`, {
+            params: {
+                id: id,
+                name: name,
+                jurusan: jurusan
+            }
+        })
+        router.refresh()
+        setIsOpen(false)
+    }
 
     const handleModal = () => {
         setIsOpen(!isOpen)
@@ -33,6 +45,7 @@ const AddSiswa = () => {
             setName('');
             setJurusan('');
             setId('');
+            getDataSiswa();
             router.refresh();
             setIsOpen(false);
         } catch (error) {
